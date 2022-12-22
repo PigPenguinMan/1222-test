@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Board from './pages/board';
+import BoardPage from './pages/boardpage';
+import BoardWriteForm from './pages/boardWirteForm';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+      < Route path='/' element={<Board />}></Route>
+        <Route path='/:id' element={<BoardPage />}></Route>
+        <Route path='/modifyform' element={<BoardWriteForm />}></Route>
+      </Routes>
     </div>
   );
 }
